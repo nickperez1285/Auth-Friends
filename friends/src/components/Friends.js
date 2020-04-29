@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Form from './Form';
+
 
 
 const Friends  = (props) => {
 
    return (
             <div>
+            <Form /> 
               {props.friends.map(friend => (
                   <div className='friendcard' key={friend.name}>
                     <h3>{friend.name}</h3>

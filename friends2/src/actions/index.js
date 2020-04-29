@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 export const FETCH_START = 'FETCH_START';
@@ -17,6 +16,7 @@ export const login = creds => dispatch => {
       })
       .then(res => {
         dispatch({ type: FETCH_SUCCESS, payload: res.data });
+
       })
       .catch(err => {
         console.log(err);
@@ -35,14 +35,4 @@ export const addFriend = friend => dispatch => {
       console.log(err);
     });
 };
-// export const addFriend = friend => dispatch => {
-//   axios
-//     .post('http://localhost:5000/api/friends', friend, {
-//       headers: { Authorization: localStorage.getItem('token')}})
-//     .then(res => {
-//       dispatch({ type: ADD_FRIEND, payload: res.data });
-//     })
-//     .catch(err => {
-//       console.log(err);
-//     });
-// };
+

@@ -1,7 +1,75 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { addFriend } from '../actions';
 import { connect } from 'react-redux';
 
+
+// const Form = () => {
+// 	const [friend, setFriend] = useState(
+// 		{
+//             name: '',
+//             age: '',
+//             email: '',
+//         } )
+
+// 	const changeHandler = e => {
+//         // e.persist();
+//         let value = e.target.value;
+//         if (e.target.name === 'age') {
+//             value = parseInt(value, 10);
+//         }
+
+//         setFriend({...friend, [e.target.name]: value });
+//     };
+
+//     const  handleSubmit = e => {
+//         e.preventDefault();
+        
+//           props.dispatch({type:"ADD_FRIEND", payload:friend});
+        
+//         setFriend(
+//    				{
+//                 name: '',
+//                 age: '',
+//                 email: '',
+//             }
+//         );
+//     };
+//         return (
+//             <div>
+//                 <form onSubmit={handleSubmit}>
+//                     <input
+//                         name="name"
+//                         onChange={changeHandler}
+//                         placeholder="Name"
+//                         value={friend.name}
+//                     />
+//                     <div className="baseline" />
+
+//                     <input
+//                         name="age"
+//                         onChange={changeHandler}
+//                         placeholder="Age"
+//                         value={friend.age}
+//                     />
+//                     <div className="baseline" />
+
+//                     <input
+//                         name="email"
+//                         onChange={changeHandler}
+//                         placeholder="Email"
+//                         value={friend.email}
+//                     />
+//                     <div className="baseline" />
+
+//                     <button className="md-button form-button">{`${
+//             'Add New'} Friend`}</button>
+//                 </form>
+//             </div>
+//         );
+    
+
+
+// }
 class Form extends React.Component {
     state = {
         friend: {
@@ -14,18 +82,18 @@ class Form extends React.Component {
 
 
     changeHandler = ev => {
-        ev.persist();
+        // ev.persist();
         let value = ev.target.value;
         if (ev.target.name === 'age') {
             value = parseInt(value, 10);
         }
 
-        this.setState(prevState => ({
+        this.setState({
             friend: {
-                ...prevState.friend,
+                ...this.state.friend,
                 [ev.target.name]: value
             }
-        }));
+        });
     };
 
     handleSubmit = e => {
@@ -81,9 +149,8 @@ class Form extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-    };
-};
 
-export default connect(mapStateToProps, {addFriend})(Form);
+
+
+export default connect(null, {addFriend})(Form);
+
